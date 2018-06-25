@@ -24,7 +24,7 @@
 				<h3>Info:</h3>
 				<p class="isbn" id="bookisbn">Doesn't exist or bad DB connection</p>
 				<p class="publisher" id="bookpublisher">Doesn't exist or bad DB connection</p>
-				<p class="author" id="bookauthor">Author: NOT IMPLEMENTED</p>
+				<p class="author" id="bookauthor">Doesn't exist or bad DB connection</p>
 				<p class="booknumber" id="bookid">Doesn't exist or bad DB connection</p>
 				<p class="status">Status: NOT IMPLEMENTED</p>
 			</div>
@@ -40,24 +40,11 @@
 
 		$bookcode = $_GET['bookcode'];
 
-		$sql = "SELECT * FROM resource WHERE id='$bookcode';";
+		$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.id ='$bookcode';";
 
 		$result = mysqli_query($conn, $sql);
 
 		$row = mysqli_fetch_assoc($result);
-
-		/*$sql2 = "SELECT * FROM authorship WHERE resource_id='$row['id']';";
-
-		$result2 = mysqli_query($conn, $sql2);
-
-		$row2 = mysqli_fetch_assoc($result2);
-
-		$sql3 = "SELECT * FROM author WHERE id='$row2['author_id']';";
-
-		$result3 = mysqli_query($conn, $sql3);
-
-		$row3 = mysqli_fetch_assoc($result3);*/
-
 
 	?>
 
@@ -66,9 +53,10 @@
 		var title = <?php echo json_encode($row['title']) ?>;
 		var isbn = <?php echo json_encode($row['resource_id']) ?>;
 		var publisher = <?php echo json_encode($row['publisher']) ?>;
-		var id = <?php echo json_encode($row['id']) ?>;
+		var id = <?php echo json_encode($row['resource_id']) ?>;
 		var description = <?php echo json_encode($row['description']) ?>;
-
+		var firstName = <?php echo json_encode($row['first_name']) ?>;
+		var lastName = <?php echo json_encode($row['last_name']) ?>;
 
 		if (title == null)
 		{
@@ -115,6 +103,15 @@
 			document.getElementById('bookdescription').innerHTML = description;
 		}
 
+		if (firstName == null && lastName == null)
+		{
+			document.getElementById('bookauthor').innerHTML = "Author: Unknown Author";
+		}
+		else
+		{
+			document.getElementById('bookauthor').innerHTML = "Author: " + firstName + " " + lastName;
+
+		}
 
 		function checkout()
 		{
