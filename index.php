@@ -19,6 +19,7 @@
 	<a href="login.php" class="homelink">Log in as Admin</a>
 
 	<script>
+		//This is a test
 		function checkout()
 		{
 			window.location='checkout.php';
