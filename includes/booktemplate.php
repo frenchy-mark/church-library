@@ -5,6 +5,7 @@
 
 	<div class="topbar">
 			<img src="../images/logoplaceholder.png" class="logo">
+			<button type="submit" name="submit" class="navbutton" onclick="home()">Home</button>	
 		
 	</div>
 
@@ -121,6 +122,11 @@
 		function goback()
 		{
 			window.location='../checkout.php';
+		}
+
+		function home()
+		{
+			window.location='../index.php';
 		}
 
 	</script>
