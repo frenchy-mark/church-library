@@ -33,20 +33,22 @@
 	</div>
 	<div class="buttons">
 		<button type="submit" name="submit" class="button1" onclick="goback()">Go Back</button>
-		<button type="submit" name="submit" class="button2" onabort="checkout()">Checkout</button>
+		<button type="submit" name="submit" class="button2" onclick="checkout()">Checkout</button>
 	</div>
 
 	<?php
 		include_once 'dbh.php';
 
+		session_start();
+
 		$bookcode = $_GET['bookcode'];
+
 
 		$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.id ='$bookcode';";
 
 		$result = mysqli_query($conn, $sql);
 
 		$row = mysqli_fetch_assoc($result);
-
 	?>
 
 	<script>
@@ -116,7 +118,7 @@
 
 		function checkout()
 		{
-			//window.location='checkout.php';
+			window.location='checkout1.php';
 		}
 
 		function goback()
