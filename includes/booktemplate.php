@@ -49,6 +49,8 @@
 		$result = mysqli_query($conn, $sql);
 
 		$row = mysqli_fetch_assoc($result);
+
+		$_SESSION['bookcode'] = $row['resource_id'];
 	?>
 
 	<script>

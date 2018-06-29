@@ -26,7 +26,7 @@
 
 		function view()
 		{
-			window.location='view.php';
+			window.location='booksearch.php';
 		}
 
 		function home()

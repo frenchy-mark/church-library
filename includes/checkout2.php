@@ -30,12 +30,16 @@
 
 	include_once 'dbh.php';
 
+	session_start();
+
+	//$test = $_SESSION['bookcode'];
+	//echo $test;
+
 	$firstName = $_GET['firstname'];
 	$lastName = $_GET['lastname'];
 
-	$test = $_SESSION['bookcode'];
-
-	echo $test;
+	$_SESSION['firstname'] = $firstName;
+	$_SESSION['lastname'] = $lastName;
 
 	$sql = "SELECT * FROM users WHERE firstname='$firstName';";
 
