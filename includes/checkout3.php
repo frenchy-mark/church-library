@@ -40,9 +40,14 @@
 
 	$email = $_GET['email'];
 
+	$_SESSION['email'] = $email;
+
 	$firstName = $_SESSION['firstname'];
 	$lastName = $_SESSION['lastname'];
 	$bookcode = $_SESSION['bookcode'];
+	$flag = $_SESSION['userFlag'];
+
+
 
 	$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.resource_id ='$bookcode';";
 
@@ -61,6 +66,7 @@
 		var userf = <?php echo json_encode($firstName) ?>;
 		var userl = <?php echo json_encode($lastName) ?>;
 		var email = <?php echo json_encode($email) ?>;
+		var flag = <?php echo json_encode($flag) ?>;
 
 		if (title == null)
 		{
@@ -105,7 +111,15 @@
 
 		function confirm()
 		{
-			window.location='checkout4.php';
+			if (flag == true)
+			{
+				window.location='checkout5.php';
+			}
+			else
+			{
+				window.location='checkout4.php';
+			}
+
 		}
 
 	</script>

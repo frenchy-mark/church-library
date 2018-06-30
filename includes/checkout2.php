@@ -47,6 +47,11 @@
 
 	$row = mysqli_fetch_assoc($result);
 
+	if ($row['firstname'] != null || $row['firstname'] != "")
+	{
+		$_SESSION['userFlag'] = true;
+	}
+
 	?>
 
 	<script>

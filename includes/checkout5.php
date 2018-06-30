@@ -5,7 +5,13 @@
 </head>
 <body>
 
-	<p>Page in development...</p>
+	<p>In development...</p>
+
+	<?php
+
+	//Need to store book in transaction log.
+
+	?>
 
 </body>
 </html>
