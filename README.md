@@ -6,16 +6,16 @@ NEED TO DO
 
 Implement Status
 
-Implement Check-Out system
+Implement Check-Out system - Half finished
 
-Implement Input Validation for all forms
+Implement Input Validation for all forms - Using javascript to implement.
 
-Add links to top page
+Add links to top page - Added the home button.
 
 Implement book search
 
 Implement search with other items, i.e authors, titles...
 
-Implement Admin page with all options
+Implement Admin page with all options - Added page. Need to add functions.
 
-Create Login page
+Create Login page - Semi-implemented.
