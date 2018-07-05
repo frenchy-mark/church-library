@@ -51,6 +51,10 @@
 	{
 		$_SESSION['userFlag'] = true;
 	}
+	else
+	{
+		$_SESSION['userFlag'] = false;
+	}
 
 	?>
 
@@ -60,10 +64,6 @@
 		if (firstName != null && firstName != "")
 		{
 			window.location='checkout3.php';
-		}
-		else
-		{
-
 		}
 
 		function home()

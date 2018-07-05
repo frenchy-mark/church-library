@@ -36,37 +36,74 @@
 
 	include_once 'dbh.php';
 
-		session_start();
+	session_start();
 
-	$email = $_GET['email'];
+	$email = "Unknown";
+	$flag = $_SESSION['userFlag'];
 
-	$_SESSION['email'] = $email;
+	if ($flag == false)
+	{
+		$email = $_GET['email'];
+		$_SESSION['email'] = $email;
+	}
 
 	$firstName = $_SESSION['firstname'];
 	$lastName = $_SESSION['lastname'];
 	$bookcode = $_SESSION['bookcode'];
-	$flag = $_SESSION['userFlag'];
 
 
 
 	$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.resource_id ='$bookcode';";
+	$sql .= "SELECT email FROM users WHERE firstname='$firstName'";
 
-	$result = mysqli_query($conn, $sql);
-	$row = mysqli_fetch_assoc($result);
+	$counter = 0;
+
+		// Execute multi query
+	if (mysqli_multi_query($conn,$sql))
+	{
+  	do
+   	 {
+    	// Store first result set
+    	if ($result=mysqli_store_result($conn)) 
+    	{
+      		// Fetch one and one row
+      		while ($data=mysqli_fetch_row($result))
+       	 	{
+       	 		if ($counter == 0)
+       	 		{
+       	 			$row = $data;
+       	 		}
+       		 	if ($counter == 1)
+       		 	{
+       		 		if ($flag == true)
+       		 		{
+       		 			$email = $data;
+       		 		}
+       		 	}
+      	 	}
+      		// Free result set
+      		mysqli_free_result($result);
+      	}
+      	$counter++;
+      }
+  	while (mysqli_next_result($conn));
+}
 
 	//echo $email . " " . $firstName . " " . $lastName . " " . $bookcode;
 
 	?>
 
 	<script>
-		var title = <?php echo json_encode($row['title']) ?>;
-		var authorf = <?php echo json_encode($row['first_name']) ?>;
-		var authorl = <?php echo json_encode($row['last_name']) ?>;
-		var isbn = <?php echo json_encode($row['resource_id']) ?>;
+		var title = <?php echo json_encode($row[0]) ?>;
+		var authorf = <?php echo json_encode($row[4]) ?>;
+		var authorl = <?php echo json_encode($row[5]) ?>;
+		var isbn = <?php echo json_encode($row[2]) ?>;
 		var userf = <?php echo json_encode($firstName) ?>;
 		var userl = <?php echo json_encode($lastName) ?>;
 		var email = <?php echo json_encode($email) ?>;
 		var flag = <?php echo json_encode($flag) ?>;
+
+		console.log(title + authorf + authorl);
 
 		if (title == null)
 		{
