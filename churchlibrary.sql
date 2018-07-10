@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2018 at 01:58 AM
+-- Generation Time: Jul 10, 2018 at 11:09 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -1113,7 +1113,6 @@ CREATE TABLE `resource` (
 
 INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES
 (1, '9781433530838', 'ESV Study Bible', NULL, NULL, NULL, NULL, '2018-03-05 22:00:00'),
-(2, '123456789', 'Test Title, Test Title', '\"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.\"', 'Test Publisher', NULL, NULL, '2018-01-10 10:10:10'),
 (3, '9781541371941', 'Birds of the Air: Theological Twitter', '', NULL, NULL, NULL, '2018-03-08 06:11:44'),
 (15, '9781781919972\r', 'Girls Just Like You', '', 'Christian Focus Publications', '6/2/2017', 128, '2018-05-27 20:58:54'),
 (16, '9781781919989\r', 'Boys Just Like Me', '', 'Christian Focus Publications', '6/2/2017', 128, '2018-05-27 20:58:54'),
@@ -1467,8 +1466,7 @@ INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`
 (364, '9780801011719\r', 'Last Days According to Jesus; The', '', 'Baker Pub Group', '', 253, '2018-05-27 21:23:43'),
 (365, '9780801021695\r', 'Journey from Texts to Translations: The Origin and Development of the Bible; The', '', 'Baker Academic', '', 464, '2018-05-27 21:23:43'),
 (366, '9780140205039\r', 'Western Society and the Church in the Middle Ages (Hist of the Church)', '', 'Penguin Books', '2/28/1970', 384, '2018-05-27 21:23:43'),
-(367, '9780140205060\r', 'Church in an Age of Revolution; The', '', 'VIKING PR', '1/1/1988', 304, '2018-05-27 21:23:43');
-INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES
+(367, '9780140205060\r', 'Church in an Age of Revolution; The', '', 'VIKING PR', '1/1/1988', 304, '2018-05-27 21:23:43'),
 (368, '9780140205022\r', 'Early Church [Penguin History of the Christian Church; Vol. 1]; The', '', 'Penguin', '', 0, '2018-05-27 21:23:43'),
 (369, '9781932474633\r', 'Calvinism in History', '', 'Solid Ground Christian Books', '11/5/2004', 124, '2018-05-27 21:23:43'),
 (370, '9781848715271\r', 'Why Read Church History?', '', 'Banner of Truth', '9/10/2015', 24, '2018-05-27 21:23:43'),
@@ -1477,7 +1475,8 @@ INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`
 (373, '9780140137613\r', 'Church and the Age of Reason; 1648-1789 (Hist of the Church); The', '', 'Penguin Books', '12/7/1990', 304, '2018-05-27 21:23:43'),
 (374, '9780852345870\r', 'Cults and Sects', '', 'Evangelical Press', '7/1/2005', 288, '2018-05-27 21:23:43'),
 (375, '9780976003908\r', 'Reformed Baptist Manifesto; A', '', 'Reformed Baptist Academic Press', '10/4/2004', 124, '2018-05-27 21:23:43'),
-(376, '9781599252636\r', 'Behind the Bible: A Primer on Textual Criticism', '', 'Solid Ground Christian Books', '1/1/2012', 111, '2018-05-27 21:23:43'),
+(376, '9781599252636\r', 'Behind the Bible: A Primer on Textual Criticism', '', 'Solid Ground Christian Books', '1/1/2012', 111, '2018-05-27 21:23:43');
+INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES
 (377, '9781596382367\r', 'Hudson Taylor: Gospel Pioneer to China', '', 'P & R Publishing', '4/30/2011', 208, '2018-05-27 21:23:43'),
 (378, '9781599252247\r', 'Family Worship for the Thanksgiving Season', '', 'Solid Ground Christian Books', '9/2/2009', 134, '2018-05-27 21:23:43'),
 (379, '9780851513966\r', 'Collected Writings of John Murray: 4 vol. set', '', 'Banner of Truth', '10/1/1982', 1620, '2018-05-27 21:23:43'),
@@ -1827,7 +1826,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`) VALUES
-(1, 'Quinn', 'Roemer', 'computergeek710@gmail.com');
+(1, 'Quinn', 'Roemer', 'computergeek710@gmail.com'),
+(2, 'John', 'Smith', 'john_smith@yahoo.com');
 
 --
 -- Indexes for dumped tables
@@ -1889,7 +1889,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `applied_category`

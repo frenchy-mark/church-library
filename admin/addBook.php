@@ -7,7 +7,7 @@
 
 	<h3>Please enter the desired books info.</h3>
 
-	<form action="checkout3.php" method="get">
+	<form action="addBook2.php" method="get">
 				<input type="text" name="title" placeholder="Enter Book Title" class="inputfield1">
 				<br>
 				<input type="text" name="publisher" placeholder="Enter Book Publisher" class="inputfield1">
