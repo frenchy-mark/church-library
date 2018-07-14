@@ -12,10 +12,14 @@ Implement Input Validation for all forms - Using javascript to implement.
 
 Add links to top page - Added the home button.
 
-Implement book search
+Implement book search.
 
-Implement search with other items, i.e authors, titles...
+Implement search with other items, i.e authors, titles... - Finished on one page.
 
 Implement Admin page with all options - Added page. Need to add functions.
 
-Create Login page - Semi-implemented.
+Create Login page - Semi-implemented. Idea: Pull passwords when login is loaded and check via hashing, eliminates need to refresh the page.
+
+Note: Don't delete a book from the library. Rather move it to a new table where deleted books can be stored.
+
+Note: Need to add code that deals with multiple instances of a book rather then just choosing the first search result.
