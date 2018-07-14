@@ -120,3 +120,8 @@ body {
 	background-color: #404347;
 
 }
+
+.radio {
+	position: absolute;
+	margin-left: 35vw;
+}

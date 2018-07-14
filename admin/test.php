@@ -7,7 +7,13 @@
 
 	<?php
 
-	include_once 'dbh.php';
+  $string = "Quinn Roemer";
+  echo $string;
+  $stringArray = explode(" ", $string);
+  echo $stringArray[0] . $stringArray[1];
+
+	/*
+  include_once 'dbh.php';
 
 	$bookcode = 2;
 	$firstName = "Quinn";
@@ -45,7 +51,7 @@
   	while (mysqli_next_result($conn));
 }
 
-echo $row[0];
+echo $row[0];*/
 
 
 	/*$sql = "SELECT * FROM resource WHERE id=2;";

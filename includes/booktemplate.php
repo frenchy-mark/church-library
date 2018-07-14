@@ -41,10 +41,26 @@
 
 		session_start();
 
-		$bookcode = $_GET['bookcode'];
+		$searchTerm = $_GET['bookcode'];
+		$searchBy = $_GET['searchBy'];
 
-
-		$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.id ='$bookcode';";
+		if ($searchBy == "bCode")
+		{
+			$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.id =$searchTerm;";
+		}
+		if ($searchBy == "author")
+		{
+			$stringArray = explode(" ", $searchTerm);
+			$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE a.first_name='$stringArray[0]' AND a.last_name='$stringArray[1]';";
+		}
+		if ($searchBy == "title")
+		{
+			$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.title ='$searchTerm';";
+		}
+		if ($searchBy == "isbn")
+		{
+			$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.resource_id =$searchTerm;";
+		}
 
 		$result = mysqli_query($conn, $sql);
 
