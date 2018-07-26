@@ -22,4 +22,4 @@ Create Login page - Semi-implemented. Idea: Pull passwords when login is loaded 
 
 Note: Don't delete a book from the library. Rather move it to a new table where deleted books can be stored.
 
-Note: Need to add code that deals with multiple instances of a book rather then just choosing the first search result.
+Note: Need to add code that deals with multiple instances of a book rather then just choosing the first search result. Idea, if a search results in more than one result while looking for a book to checkout redirect to a page where the user can choose between the options by entering their unique id.
