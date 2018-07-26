@@ -54,7 +54,7 @@
 
 
 	$sql = "SELECT r.title, r.publisher, r.resource_id, r.description, a.first_name, a.last_name FROM resource r JOIN authorship au ON au.resource_id = r.id JOIN author a ON au.author_id = a.id WHERE r.resource_id ='$bookcode';";
-	$sql .= "SELECT email FROM users WHERE firstname='$firstName'";
+	$sql .= "SELECT id, email FROM users WHERE firstname='$firstName'";
 
 	$counter = 0;
 
@@ -77,7 +77,8 @@
        		 	{
        		 		if ($flag == true)
        		 		{
-       		 			$email = $data;
+       		 			$email = $data[1];
+       		 			$_SESSION['userId'] = $data[0];
        		 		}
        		 	}
       	 	}
