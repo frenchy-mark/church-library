@@ -6,7 +6,7 @@ NEED TO DO
 
 Implement Status
 
-Implement Check-Out system - Half finished
+Implement Check-Out system - Successfully completed. Correctly entering user and book into transaction log.
 
 Implement Input Validation for all forms - Using javascript to implement.
 
