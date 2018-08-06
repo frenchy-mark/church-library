@@ -26,6 +26,8 @@ Note: Need to add code that deals with multiple instances of a book rather then 
 
 Idea: Add a how to use button at home page that a new user can click to get instructions on how to use the system.
 
+Idea: Add about bottom that redirects to church website and support button that links to a page where the user can submit bug reports.
+
 
 Features to Add Later
 ======================
