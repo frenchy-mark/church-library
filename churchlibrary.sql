@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2018 at 11:08 PM
+-- Generation Time: Aug 06, 2018 at 10:05 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -1093,6 +1093,32 @@ CREATE TABLE `category` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `deleted_resource`
+--
+
+CREATE TABLE `deleted_resource` (
+  `id` int(11) NOT NULL,
+  `resource_id` varchar(20) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(1024) DEFAULT NULL,
+  `publisher` varchar(45) DEFAULT NULL,
+  `publish_date` varchar(45) DEFAULT NULL,
+  `page_count` int(11) DEFAULT NULL,
+  `timestamp` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `deleted_resource`
+--
+
+INSERT INTO `deleted_resource` (`id`, `resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES
+(1, '123456789', 'Test', 'test test test test', 'test publisher', '7/10/1998', 222, 'sometime'),
+(2, '123456789', 'Test', 'test test test test', 'test publisher', '7/10/1998', 222, 'sometime'),
+(3, '123456789', 'Test', 'umm description', 'test publisher', '12/32/1234', 45, '2018-08-06 12:27:17');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `resource`
 --
 
@@ -1113,7 +1139,7 @@ CREATE TABLE `resource` (
 
 INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES
 (1, '9781433530838', 'ESV Study Bible', NULL, NULL, NULL, NULL, '2018-03-05 22:00:00'),
-(3, '9781541371941', 'Birds of the Air: Theological Twitter', '', NULL, NULL, NULL, '2018-03-08 06:11:44'),
+(3, '9781541371941', 'Birds of the Air: Theological Twitter', 'Jesus invented Twitter? Well, He was a master at throwing out brief, pithy sayings that were calculated to provoke and offend. But that put Him at the pointy end of a long line of prophets who trafficked in barbs, riddles and shocking object lessons. Instead of doling out rose water, these troublemakers went straight for the gasoline. Those who indulge in murder and adultery are often the first to insist upon table manners, which is why God sends a Jeremiah to smash the pottery or an Isaiah to preach naked in the street. King Solomon, who was also an accomplished tweeter, might tell us that there is a time to be polite and a time to give some obstinate official a poke in the eye. The truth wrapped in a riddle or a joke is irresistible. What looks like skylarking is sometimes the fowler\'s snare. This selection of airborne quips and eagle-eyed observations by Michael Bull will likely challenge, offend, anger and unsettle. But it will also edify and perhaps even amuse.', 'Createspace Independent Publishing Platform', '12/30/2016', 222, '2018-03-08 06:11:44'),
 (15, '9781781919972\r', 'Girls Just Like You', '', 'Christian Focus Publications', '6/2/2017', 128, '2018-05-27 20:58:54'),
 (16, '9781781919989\r', 'Boys Just Like Me', '', 'Christian Focus Publications', '6/2/2017', 128, '2018-05-27 20:58:54'),
 (17, '9781857923445\r', 'Jesus Is Alive: The Amazing Story (Bible Wise)', '', 'CF4Kids', '3/20/2005', 32, '2018-05-27 20:58:54'),
@@ -1467,7 +1493,8 @@ INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`
 (365, '9780801021695\r', 'Journey from Texts to Translations: The Origin and Development of the Bible; The', '', 'Baker Academic', '', 464, '2018-05-27 21:23:43'),
 (366, '9780140205039\r', 'Western Society and the Church in the Middle Ages (Hist of the Church)', '', 'Penguin Books', '2/28/1970', 384, '2018-05-27 21:23:43'),
 (367, '9780140205060\r', 'Church in an Age of Revolution; The', '', 'VIKING PR', '1/1/1988', 304, '2018-05-27 21:23:43'),
-(368, '9780140205022\r', 'Early Church [Penguin History of the Christian Church; Vol. 1]; The', '', 'Penguin', '', 0, '2018-05-27 21:23:43'),
+(368, '9780140205022\r', 'Early Church [Penguin History of the Christian Church; Vol. 1]; The', '', 'Penguin', '', 0, '2018-05-27 21:23:43');
+INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES
 (369, '9781932474633\r', 'Calvinism in History', '', 'Solid Ground Christian Books', '11/5/2004', 124, '2018-05-27 21:23:43'),
 (370, '9781848715271\r', 'Why Read Church History?', '', 'Banner of Truth', '9/10/2015', 24, '2018-05-27 21:23:43'),
 (371, '9780952791300\r', 'Kiffin Knollys & Keach: Rediscovering English Baptist Heritage', '', 'Evangelical Press', '', 128, '2018-05-27 21:23:43'),
@@ -1475,8 +1502,7 @@ INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`
 (373, '9780140137613\r', 'Church and the Age of Reason; 1648-1789 (Hist of the Church); The', '', 'Penguin Books', '12/7/1990', 304, '2018-05-27 21:23:43'),
 (374, '9780852345870\r', 'Cults and Sects', '', 'Evangelical Press', '7/1/2005', 288, '2018-05-27 21:23:43'),
 (375, '9780976003908\r', 'Reformed Baptist Manifesto; A', '', 'Reformed Baptist Academic Press', '10/4/2004', 124, '2018-05-27 21:23:43'),
-(376, '9781599252636\r', 'Behind the Bible: A Primer on Textual Criticism', '', 'Solid Ground Christian Books', '1/1/2012', 111, '2018-05-27 21:23:43');
-INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES
+(376, '9781599252636\r', 'Behind the Bible: A Primer on Textual Criticism', '', 'Solid Ground Christian Books', '1/1/2012', 111, '2018-05-27 21:23:43'),
 (377, '9781596382367\r', 'Hudson Taylor: Gospel Pioneer to China', '', 'P & R Publishing', '4/30/2011', 208, '2018-05-27 21:23:43'),
 (378, '9781599252247\r', 'Family Worship for the Thanksgiving Season', '', 'Solid Ground Christian Books', '9/2/2009', 134, '2018-05-27 21:23:43'),
 (379, '9780851513966\r', 'Collected Writings of John Murray: 4 vol. set', '', 'Banner of Truth', '10/1/1982', 1620, '2018-05-27 21:23:43'),
@@ -1803,10 +1829,10 @@ CREATE TABLE `transaction_log` (
 --
 
 INSERT INTO `transaction_log` (`id`, `resource_id`, `type`, `users_id`, `timestamp`) VALUES
-(1, '1', 2, 1, '2018-05-28 07:00:00'),
-(2, '3', 2, 1, '2018-05-28 07:01:00'),
-(3, '1', 2, 2, '2018-05-28 08:00:00'),
-(4, '1', 1, 1, '2018-05-28 07:30:00');
+(5, '23', 2, 1, '2018-08-06 10:56:42'),
+(6, '567', 2, 3, '2018-08-06 10:57:29'),
+(7, '62', 2, 1, '2018-08-06 10:58:35'),
+(8, '23', 1, 1, '2018-08-06 12:27:17');
 
 -- --------------------------------------------------------
 
@@ -1827,7 +1853,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`) VALUES
 (1, 'Quinn', 'Roemer', 'computergeek710@gmail.com'),
-(2, 'John', 'Smith', 'john_smith@yahoo.com');
+(2, 'John', 'Smith', 'john_smith@yahoo.com'),
+(3, 'Daniel', 'Dog', 'danielDog@something.com');
 
 --
 -- Indexes for dumped tables
@@ -1861,6 +1888,12 @@ ALTER TABLE `authorship`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `deleted_resource`
+--
+ALTER TABLE `deleted_resource`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1916,22 +1949,28 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `deleted_resource`
+--
+ALTER TABLE `deleted_resource`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=670;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=674;
 
 --
 -- AUTO_INCREMENT for table `transaction_log`
 --
 ALTER TABLE `transaction_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

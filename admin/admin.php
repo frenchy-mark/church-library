@@ -3,6 +3,8 @@
 <head>
 	<title>GRBC Library</title>
 
+	<a href="returnbook.php">Return a Book</a>
+	<br>
 	<a href="checkedout.php">See all checked out books.</a>
 	<br>
 	<a href="addbook.php">Add a book.</a>

@@ -7,10 +7,34 @@
 
 	<?php
 
+  include 'dbh.php';
+
+  $sql = "SELECT * FROM resource WHERE title='Test';";
+
+  $result = mysqli_query($conn, $sql);
+
+  $row = mysqli_fetch_assoc($result);
+
+  echo $row['resource_id'];
+
+  $sql = "SELECT * FROM resource WHERE title='Test';";
+
+  $result = mysqli_query($conn, $sql);
+
+  $row = mysqli_fetch_assoc($result);
+
+  echo $row['resource_id'];
+
+  //$sql = "SELECT * FROM deleted_resource WHERE id=$row['resource_id'];";
+
+  //$sql = "new";
+
+  /*
   $string = "Quinn Roemer";
   echo $string;
   $stringArray = explode(" ", $string);
   echo $stringArray[0] . $stringArray[1];
+  */
 
 	/*
   include_once 'dbh.php';
