@@ -37,3 +37,5 @@ Automatic Emailing system for books overdue.
 Automatic Database backup.
 
 Book entry by scanning barcode.
+
+Link up to some form of Book API to provide more details about a book.
