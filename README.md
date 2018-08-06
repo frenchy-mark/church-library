@@ -24,6 +24,8 @@ Note: Don't delete a book from the library. Rather move it to a new table where 
 
 Note: Need to add code that deals with multiple instances of a book rather then just choosing the first search result. Idea, if a search results in more than one result while looking for a book to checkout redirect to a page where the user can choose between the options by entering their unique id.
 
+Idea: Add a how to use button at home page that a new user can click to get instructions on how to use the system.
+
 
 Features to Add Later
 ======================
