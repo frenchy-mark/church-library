@@ -7,13 +7,21 @@
 
 	<?php
 
-	include_once 'dbh.php';
+	include 'dbh.php';
 
-	$title = $_GET['title'];
-	$publisher = $_GET['publisher'];
-	$author_first = $_GET['authorf'];
-	$author_last = $_GET['authorl'];
-	$isbn = $_GET['isbn'];
+	$title = $_POST['title'];
+	$publisher = $_POST['publisher'];
+	$author_first = $_POST['authorf'];
+	$author_last = $_POST['authorl'];
+	$isbn = $_POST['isbn'];
+	$publishDate = $_POST['publishDate'];
+	$pageCount = $_POST['pageCount'];
+	$description = $_POST['description'];
+
+	//echo $title . " " . $publisher . " " . $isbn;
+	echo $author_first . " " . $author_last . "<br>" /*. " " . $pageCount*/;
+	//echo $publishDate . " " . $description;
+
 
 	//echo $title . $publisher . $authorf . $authorl . $isbn . "<br>";
 
@@ -23,15 +31,23 @@
 
 	$row = mysqli_fetch_assoc($result);
 
+	echo $row['first_name'];
+
+	echo mysqli_num_rows($row);
+
+	/*$result = mysqli_query($conn, $sql);
+
+	$row = mysqli_fetch_assoc($result);
+
 	echo $row['first_name'] . " " . $row['last_name'];
 
-	/*if ($row['first_name'] == "" || $row['first_name'] == null)
+	if (mysqli_num_rows($result) <= 0)
 	{
 		echo "Result is false...";
 	}
 	else
 	{
-		echo "Result...";
+		echo "Result is true...";
 	}*/
 
 	?>

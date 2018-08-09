@@ -9,7 +9,7 @@
 
 	<?php
 
-		//<meta http-equiv="refresh" content="5; url=admin.php" />
+		<meta http-equiv="refresh" content="5; url=admin.php" />
 
 		include 'dbh.php';
 
