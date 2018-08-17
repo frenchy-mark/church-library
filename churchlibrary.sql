@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2018 at 10:05 PM
+-- Generation Time: Aug 17, 2018 at 10:27 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -398,7 +398,8 @@ INSERT INTO `author` (`id`, `first_name`, `last_name`, `timestamp`) VALUES
 (325, 'William', 'Blaikie', '2018-05-27 21:23:47'),
 (326, 'Thomas', 'M\'CRIE', '2018-05-27 21:23:47'),
 (327, 'Martha', 'Peace', '2018-05-27 21:23:48'),
-(328, 'first_name', 'last_name', '2018-05-27 21:25:19');
+(328, 'first_name', 'last_name', '2018-05-27 21:25:19'),
+(329, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1076,7 +1077,9 @@ INSERT INTO `authorship` (`id`, `author_id`, `resource_id`, `primary_author`, `t
 (664, 60, '666', 1, '2018-05-27 21:23:48'),
 (665, 327, '667', 1, '2018-05-27 21:23:48'),
 (666, 99, '668', 1, '2018-05-27 21:23:48'),
-(667, 129, '669', 1, '2018-05-27 21:23:48');
+(667, 129, '669', 1, '2018-05-27 21:23:48'),
+(672, 9, '684', 1, '2018-08-17 13:13:01'),
+(673, 9, '684', 1, '2018-08-17 13:13:25');
 
 -- --------------------------------------------------------
 
@@ -1114,7 +1117,8 @@ CREATE TABLE `deleted_resource` (
 INSERT INTO `deleted_resource` (`id`, `resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES
 (1, '123456789', 'Test', 'test test test test', 'test publisher', '7/10/1998', 222, 'sometime'),
 (2, '123456789', 'Test', 'test test test test', 'test publisher', '7/10/1998', 222, 'sometime'),
-(3, '123456789', 'Test', 'umm description', 'test publisher', '12/32/1234', 45, '2018-08-06 12:27:17');
+(3, '123456789', 'Test', 'umm description', 'test publisher', '12/32/1234', 45, '2018-08-06 12:27:17'),
+(4, '123456789', 'Test Title', 'Test Description', 'Test Publisher', 'Test Date', 234, 'something');
 
 -- --------------------------------------------------------
 
@@ -1795,7 +1799,9 @@ INSERT INTO `resource` (`id`, `resource_id`, `title`, `description`, `publisher`
 (666, '9780781402576\r', 'King Without a Shadow; The', '', 'Chariot Victor Pub', '', 0, '2018-05-27 21:23:48'),
 (667, '9781885904089\r', 'Excellent Wife: A Biblical Perspective; The', '', 'Focus Publishing (MN)', '9/1/1999', 257, '2018-05-27 21:23:48'),
 (668, '9781599252490\r', 'Jesus Loves the Church and So Should You: Studies in Biblical Churchmanship', '', 'Solid Ground Christian Books', '10/14/2010', 154, '2018-05-27 21:23:48'),
-(669, '9780310511113', 'Marriage; Divorce; and Remarriage in the Bible', '', 'Zondervan', '6/2/1986', 128, '2018-05-27 21:23:48');
+(669, '9780310511113', 'Marriage; Divorce; and Remarriage in the Bible', '', 'Zondervan', '6/2/1986', 128, '2018-05-27 21:23:48'),
+(684, '123456789', 'Test Title', 'Test description', 'Test Publisher', '12/20/2016', 234, '2018-08-17 13:13:01'),
+(685, '123456789', 'Test Title', 'Test description', 'Test Publisher', '12/20/2016', 2356, '2018-08-17 13:13:25');
 
 -- --------------------------------------------------------
 
@@ -1934,13 +1940,13 @@ ALTER TABLE `applied_category`
 -- AUTO_INCREMENT for table `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=330;
 
 --
 -- AUTO_INCREMENT for table `authorship`
 --
 ALTER TABLE `authorship`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=668;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=674;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -1952,19 +1958,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `deleted_resource`
 --
 ALTER TABLE `deleted_resource`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=674;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=686;
 
 --
 -- AUTO_INCREMENT for table `transaction_log`
 --
 ALTER TABLE `transaction_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
