@@ -5,6 +5,10 @@
 </head>
 <body>
 
+	<meta http-equiv="refresh" content="5; url=admin.php"/>
+
+	<h3 align=center>Entry Successful!</h3>
+
 	<?php
 
 	include 'dbh.php';
@@ -18,37 +22,80 @@
 	$pageCount = $_POST['pageCount'];
 	$description = $_POST['description'];
 
+	$existingAuthor = false;
+
+	date_default_timezone_set('America/Los_Angeles');
+  	$timeStamp = date('Y-m-d H:i:s');
+
 	//echo $title . " " . $publisher . " " . $isbn;
-	echo $author_first . " " . $author_last . "<br>" /*. " " . $pageCount*/;
+	//echo $author_first . " " . $author_last . "<br>" /*. " " . $pageCount*/;
 	//echo $publishDate . " " . $description;
-
-
 	//echo $title . $publisher . $authorf . $authorl . $isbn . "<br>";
 
-	$sql = "SELECT * FROM author WHERE first_name='$author_first' AND last_name='author_last';";
+	$sql = "SELECT * FROM author WHERE first_name='$author_first' AND last_name='$author_last';";
 
 	$result = mysqli_query($conn, $sql);
 
 	$row = mysqli_fetch_assoc($result);
 
-	echo $row['first_name'];
-
-	echo mysqli_num_rows($row);
-
-	/*$result = mysqli_query($conn, $sql);
-
-	$row = mysqli_fetch_assoc($result);
-
-	echo $row['first_name'] . " " . $row['last_name'];
-
-	if (mysqli_num_rows($result) <= 0)
+	if (mysqli_num_rows($result) > 0)
 	{
-		echo "Result is false...";
+		$existingAuthor = true;
+		$authorID = $row['id'];
+		//echo $authorID;
 	}
+
+	if ($existingAuthor == true)
+	{
+		$sql = "INSERT INTO resource (`resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES ('$isbn', '$title', '$description', '$publisher', '$publishDate', $pageCount, '$timeStamp');";
+
+		mysqli_query($conn, $sql);
+
+		$sql = "SELECT * FROM resource WHERE title='$title' AND resource_id=$isbn;";
+
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+
+		//echo $row['id'];
+
+		$resource_id = $row['id'];
+
+		$sql = "INSERT INTO authorship (author_id, resource_id, primary_author, timestamp) VALUES ($authorID, $resource_id, 1, '$timeStamp');";
+
+		mysqli_query($conn, $sql);
+	}
+
 	else
 	{
-		echo "Result is true...";
-	}*/
+		$sql = "INSERT INTO resource (`resource_id`, `title`, `description`, `publisher`, `publish_date`, `page_count`, `timestamp`) VALUES ('$isbn', '$title', '$description', '$publisher', '$publishDate', $pageCount, '$timeStamp');";
+
+		mysqli_query($conn, $sql);
+
+		$sql = "INSERT INTO author (`first_name`, `last_name`, `timestamp`) VALUES ('$author_first', '$author_last', '$timeStamp');";
+
+		mysqli_query($conn, $sql);
+
+		$sql = "SELECT * FROM author WHERE first_name='$author_first' AND last_name='$author_last';";
+
+		$result = mysqli_query($conn, $sql);
+
+		$row = mysqli_fetch_assoc($result);
+
+		$authorID = $row['id'];
+
+		$sql = "SELECT * FROM resource WHERE title='$title' AND resource_id=$isbn;";
+
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+
+		//echo $row['id'];
+
+		$resource_id = $row['id'];
+
+		$sql = "INSERT INTO authorship (author_id, resource_id, primary_author, timestamp) VALUES ($authorID, $resource_id, 1, '$timeStamp');";
+
+		mysqli_query($conn, $sql);
+	}
 
 	?>
 

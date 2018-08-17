@@ -13,7 +13,7 @@
 
 	<link href="css/stylesheet.css" type="text/css" rel="stylesheet"/>
 
-	<form action="includes/booktemplate.php" method="get">
+	<form action="checkDupe.php" method="get">
 		<input type="text" name="bookcode" placeholder="Enter Book Number" class="inputfield">
 		<br>
 		<div class="radio">
@@ -54,6 +54,11 @@
 			{
 				document.getElementsByName('bookcode')[0].placeholder='Please Select A Search Type';
 			}
+		}
+
+		function test()
+		{
+			alert("It worked!");
 		}
 
 

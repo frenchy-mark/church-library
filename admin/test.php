@@ -9,7 +9,14 @@
 
   include 'dbh.php';
 
-  $sql = "SELECT * FROM resource WHERE title='Test';";
+  date_default_timezone_set('America/Los_Angeles');
+  $date = date('Y-m-d H:i:s');
+
+
+  echo $date;
+
+
+  /*$sql = "SELECT * FROM resource WHERE title='Test';";
 
   $result = mysqli_query($conn, $sql);
 

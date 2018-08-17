@@ -4,19 +4,19 @@
 	<title>GRBC Library</title>
 </head>
 <body>
+	
+	<meta http-equiv="refresh" content="5; url=admin.php"/>
 
 	
 
 	<?php
-
-		<meta http-equiv="refresh" content="5; url=admin.php" />
 
 		include 'dbh.php';
 
 		session_start();
 
 		$title = $_SESSION['deleteTitle'];
-		echo $title;
+		//echo $title;
 
 		$sql = "SELECT * FROM resource WHERE title='$title';";
 		$result = mysqli_query($conn, $sql);

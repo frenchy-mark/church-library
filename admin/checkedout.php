@@ -8,7 +8,20 @@
 	<?php
 		include_once 'dbh.php';
 
-		$sql = "SELECT * FROM transaction_log JOIN users ON users.id = transaction_log.users_id JOIN resource ON resource.id = transaction_log.resource_id;";
+		$sql = "SELECT * FROM 
+(SELECT checkOut.book, r.title, (checkOut.typeCount - checkIn.typeCount) AS checks
+FROM (SELECT trans.resource_id as book, count(trans.type) typeCount
+        FROM transaction_log trans
+                WHERE type = 1
+                GROUP BY book) AS checkIn
+JOIN (SELECT trans.resource_id as book, count(trans.type) typeCount, timeStamp
+    FROM transaction_log trans
+    WHERE type = 2
+GROUP BY book) AS checkOut ON checkOut.book = checkIn.book
+JOIN resource r ON r.id = checkOut.book
+GROUP BY checkOut.book) AS bookList
+WHERE bookList.checks > 0
+";
 
 		$result = mysqli_query($conn, $sql);
 		$resultCheck = mysqli_num_rows($result);
