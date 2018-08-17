@@ -110,9 +110,69 @@
 
 		//alert(row['id']);
 
-		//document.getElementById("one").removeAttribute("hidden");
+		document.getElementById("form").removeAttribute("hidden");
 
 		//document.getElementById("one").innerHTML =  "<b>" + row['id'] + "</b>" + " " + row['title'] + " " + row['resource_id'] + " " + row['first_name'] + " " + row['last_name'];
+
+		for (var count = 1; count <= number; count++)
+		{
+			switch(count)
+			{
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[count - 1]['id'] + "</b>" + " " + row[count - 1]['title'] + " " + row[count - 1]['resource_id'] + " " + row[count - 1]['first_name'] + " " + row[count - 1]['last_name'];
+				break;
+
+				case 2:
+					document.getElementById("two").removeAttribute("hidden");
+					document.getElementById("two").innerHTML =  "<b>" + row[count - 1]['id'] + "</b>" + " " + row[count - 1]['title'] + " " + row[count - 1]['resource_id'] + " " + row[count - 1]['first_name'] + " " + row[count - 1]['last_name'];
+				break;
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[0]['id'] + "</b>" + " " + row[0]['title'] + " " + row[0]['resource_id'] + " " + row[0]['first_name'] + " " + row[0]['last_name'];
+				break;
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[0]['id'] + "</b>" + " " + row[0]['title'] + " " + row[0]['resource_id'] + " " + row[0]['first_name'] + " " + row[0]['last_name'];
+				break;
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[0]['id'] + "</b>" + " " + row[0]['title'] + " " + row[0]['resource_id'] + " " + row[0]['first_name'] + " " + row[0]['last_name'];
+				break;
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[0]['id'] + "</b>" + " " + row[0]['title'] + " " + row[0]['resource_id'] + " " + row[0]['first_name'] + " " + row[0]['last_name'];
+				break;
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[0]['id'] + "</b>" + " " + row[0]['title'] + " " + row[0]['resource_id'] + " " + row[0]['first_name'] + " " + row[0]['last_name'];
+				break;
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[0]['id'] + "</b>" + " " + row[0]['title'] + " " + row[0]['resource_id'] + " " + row[0]['first_name'] + " " + row[0]['last_name'];
+				break;
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[0]['id'] + "</b>" + " " + row[0]['title'] + " " + row[0]['resource_id'] + " " + row[0]['first_name'] + " " + row[0]['last_name'];
+				break;
+
+				case 1:
+					document.getElementById("one").removeAttribute("hidden");
+					document.getElementById("one").innerHTML =  "<b>" + row[0]['id'] + "</b>" + " " + row[0]['title'] + " " + row[0]['resource_id'] + " " + row[0]['first_name'] + " " + row[0]['last_name'];
+				break;
+
+
+
+			}
+		}
 
 
 		
